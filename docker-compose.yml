@@ -1,0 +1,10 @@
+version: '3'
+services:
+  proxy_service:
+    restart: always
+    container_name: proxy_service
+    build:
+      context: .
+      dockerfile: build/proxy_service.Dockerfile
+    ports:
+      - 8000:8000

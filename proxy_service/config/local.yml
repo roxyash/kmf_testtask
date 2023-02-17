@@ -1,0 +1,10 @@
+app:
+    port: 8000
+    serviceName: "proxy_service"
+    executionTimeout: 5000
+    checkIntervalSeconds: 10
+    logPath: "./logs/proxy_service.log"
+    envPath: "proxy_service/config/.env"
+
+
+    

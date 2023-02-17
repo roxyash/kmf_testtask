@@ -1,0 +1,64 @@
+basePath: /api/v1
+definitions:
+  request.ProxyRequest:
+    properties:
+      headers:
+        additionalProperties:
+          type: string
+        type: object
+      method:
+        type: string
+      url:
+        type: string
+    type: object
+  response.ProxyResponse:
+    properties:
+      headers:
+        additionalProperties:
+          type: string
+        type: object
+      id:
+        type: integer
+      length:
+        type: integer
+      status:
+        type: integer
+    type: object
+host: localhost:8000
+info:
+  contact: {}
+  description: this is service, allow user authentication
+  title: PROXY SERVICE
+  version: "1.0"
+paths:
+  /proxy:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: User login details
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/request.ProxyRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.ProxyResponse'
+        "400":
+          description: Error
+          schema:
+            type: string
+      summary: Proxy
+      tags:
+      - Proxy
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
