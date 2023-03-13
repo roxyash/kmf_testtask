@@ -21,5 +21,5 @@ OR
 `http://localhost:8000/swagger`
 
 
-# Good luck!
+# Good luck
  
